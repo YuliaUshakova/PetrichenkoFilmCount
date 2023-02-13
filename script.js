@@ -1,6 +1,7 @@
 "use strict";
 
 const numberOfFilms = +prompt ('How many films have you already seen?', "");
+// if (numberOfFilms != '')
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -10,15 +11,20 @@ const personalMovieDB = {
     privat: false
 };
 
-const a = prompt ('Name one of the films you recently watched', ''),
-      b = prompt ('Rate it out of 10', ''),
-      c = prompt ('Name one of the films you recently watched', ''),
-      d = prompt ('Rate it out of 10', '');
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+for (let i = 0; i < 2; i++) {
+    const a = prompt ('Name one of the films you recently watched', ''),
+      b = prompt ('Rate it out of 10', '');
 
-console.log(personalMovieDB);
+      if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('done');
+      } else {
+        console.log('error');
+        i--;
+      }
+}
+
 
 
 
